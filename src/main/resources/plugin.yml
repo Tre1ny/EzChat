@@ -1,0 +1,68 @@
+name: EzChat
+main: dev.Tre1ny.ezchat.EzChat
+version: 1.0-SNAPSHOT
+api-version: 1.20
+author: Tre1ny
+description: Кастомный чат с локальным/глобальным режимом, мутами и историей
+
+commands:
+  ezchat:
+    description: Управление EzChat
+    usage: /ezchat reload
+    permission: ezchat.admin
+
+  mute:
+    description: Замутить игрока
+    usage: /mute <игрок> <причина> [время]
+    permission: ezchat.mute
+
+  unmute:
+    description: Размутить игрока
+    usage: /unmute <игрок>
+    permission: ezchat.unmute
+
+  muteinfo:
+    description: Информация о муте игрока
+    usage: /muteinfo <игрок>
+    permission: ezchat.muteinfo
+
+  mutehistory:
+    description: История мутов игрока
+    usage: /mutehistory <игрок>
+    permission: ezchat.mutehistory
+
+permissions:
+  ezchat.admin:
+    description: Полный доступ к EzChat
+    default: op
+    children:
+      ezchat.chat.local: true
+      ezchat.chat.global: true
+      ezchat.mute: true
+      ezchat.unmute: true
+      ezchat.muteinfo: true
+      ezchat.mutehistory: true
+
+  ezchat.chat.local:
+    description: Использование локального чата
+    default: true
+
+  ezchat.chat.global:
+    description: Использование глобального чата (!сообщение)
+    default: true
+
+  ezchat.mute:
+    description: Выдача мута
+    default: op
+
+  ezchat.unmute:
+    description: Снятие мута
+    default: op
+
+  ezchat.muteinfo:
+    description: Просмотр информации о муте
+    default: op
+
+  ezchat.mutehistory:
+    description: Просмотр истории мутов
+    default: op
